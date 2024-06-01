@@ -17,7 +17,6 @@
 #include <linux/workqueue.h>
 #include <linux/nodemask.h>
 #include <linux/mmdebug.h>
-#include <linux/android_kabi.h>
 
 #include <asm/mmu.h>
 
