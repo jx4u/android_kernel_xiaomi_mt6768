@@ -291,6 +291,8 @@ source "drivers/pci/Kconfig"
 
 endmenu
 
+menu "Kernel Features"
+
 menu "ARM errata workarounds via the alternatives framework"
 
 config ARM64_ERRATUM_826319
@@ -696,6 +698,20 @@ config NR_CPUS
 	range 2 4096
 	# These have to remain sorted largest to smallest
 	default "64"
+
+config LITTLE_CPU_MASK
+	int "Bitmask of available LITTLE CPUs"
+	help
+	  This is a bitmask specifying which of the CPUs are LITTLE in a
+	  heterogeneous system. Use 0 if you are unsure, which just results in
+	  this storing the bitmask of all available CPUs.
+
+config BIG_CPU_MASK
+	int "Bitmask of available big CPUs"
+	help
+	  This is a bitmask specifying which of the CPUs are big in a
+	  heterogeneous system. Use 0 if you are unsure, which just results in
+	  this storing the bitmask of all available CPUs.
 
 config HOTPLUG_CPU
 	bool "Support for hot-pluggable CPUs"
@@ -1148,6 +1164,10 @@ config RANDOMIZE_MODULE_REGION_FULL
 	  a limited range that contains the [_stext, _etext] interval of the
 	  core kernel, so branch relocations are always in range.
 
+endmenu
+
+menu "Boot options"
+
 config ARM64_ACPI_PARKING_PROTOCOL
 	bool "Enable support for the ARM64 ACPI parking protocol"
 	depends on ACPI
@@ -1274,6 +1294,10 @@ config BUILD_ARM64_DTB_OVERLAY_IMAGE_NAMES
 	  building a concatenated overlay image
 
 endmenu
+
+menu "Userspace binary formats"
+
+source "fs/Kconfig.binfmt"
 
 config COMPAT
 	bool "Kernel support for 32-bit EL0"
