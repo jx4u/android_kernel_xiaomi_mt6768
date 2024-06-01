@@ -551,7 +551,6 @@ struct mm_struct {
 	 * is dynamically sized based on nr_cpu_ids.
 	 */
 	unsigned long cpu_bitmap[];
-};
 
 extern struct mm_struct init_mm;
 
