@@ -291,8 +291,6 @@ source "drivers/pci/Kconfig"
 
 endmenu
 
-menu "Kernel Features"
-
 menu "ARM errata workarounds via the alternatives framework"
 
 config ARM64_ERRATUM_826319
@@ -1151,8 +1149,6 @@ config RANDOMIZE_MODULE_REGION_FULL
 	  core kernel, so branch relocations are always in range.
 
 endmenu
-
-menu "Boot options"
 
 config ARM64_ACPI_PARKING_PROTOCOL
 	bool "Enable support for the ARM64 ACPI parking protocol"
